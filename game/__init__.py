@@ -1,3 +1,5 @@
 __author__ = 'Su Lei'
 
-import resources, load
+import resources
+import load
+import physicalobject
