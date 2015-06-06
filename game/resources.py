@@ -15,4 +15,7 @@ asteroid_image = pg.resource.image('asteroid.png')
 center_image(play_image)
 center_image(bullet_image)
 center_image(asteroid_image)
+engine_image = pg.resource.image('engine_flame.png')
+engine_image.anchor_x = engine_image.width * 1.5
+engine_image.anchor_y = engine_image.height / 2
 
