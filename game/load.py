@@ -5,10 +5,11 @@ import random
 import math
 import physicalobject
 from game import resources
+from util import distance
 
 
-def distance(point_1=(0, 0), point_2=(0, 0)):
-    return math.sqrt((point_1[0] - point_2[0]) ** 2 + (point_1[1] - point_2[1]) ** 2)
+# def distance(point_1=(0, 0), point_2=(0, 0)):
+#     return math.sqrt((point_1[0] - point_2[0]) ** 2 + (point_1[1] - point_2[1]) ** 2)
 
 
 def asteroids(num_asteroids, player_position, batch=None):
@@ -27,6 +28,8 @@ def asteroids(num_asteroids, player_position, batch=None):
     return asteroids_array
 
 
+
+
 def player_lives(num_icons, batch=None):
     player_lives_a = []
     for i in xrange(num_icons):
@@ -34,4 +37,6 @@ def player_lives(num_icons, batch=None):
         new_sprite.scale = 0.5
         player_lives_a.append(new_sprite)
     return player_lives_a
+
+
 
