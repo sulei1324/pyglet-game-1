@@ -12,11 +12,11 @@ level_label = pg.text.Label(text='Game 1', x=400, y=575, anchor_x='center', batc
 player_ship = player.Player(x=400, y=300, batch=main_batch)
 asteroids = load.asteroids(3, player_ship.position, main_batch)
 game_objects = asteroids + [player_ship]
-game_window.push_handlers(player_ship.key_handler)
+for obj in game_objects:
+    for handler in obj.event_handlers:
+        game_window.push_handlers(handler)
 
 def update(dt):
-    for obj in game_objects:
-        obj.update(dt)
     for i in xrange(len(game_objects)):
         for j in xrange(i + 1, len(game_objects)):
             obj_1 = game_objects[i]
@@ -25,9 +25,18 @@ def update(dt):
                 if obj_1.collides_with(obj_2):
                     obj_1.handle_collision_with(obj_2)
                     obj_2.handle_collision_with(obj_1)
+
+    to_add = []
+    for obj in game_objects:
+        obj.update(dt)
+        to_add.extend(obj.new_objects)
+        obj.new_objects = []
+
     for to_remove in [obj for obj in game_objects if obj.dead]:
         to_remove.delete()
         game_objects.remove(to_remove)
+
+    game_objects.extend(to_add)
 
 
 @game_window.event

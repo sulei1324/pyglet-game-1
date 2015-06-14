@@ -8,6 +8,8 @@ class PhysicalObject(pyglet.sprite.Sprite):
         super(PhysicalObject, self).__init__(*args, **kargs)
         self.velocity_x, self.velocity_y = 0.0, 0.0
         self.dead = False
+        self.event_handlers = []
+        self.new_objects = []
 
     def update(self, dt):
         self.x += self.velocity_x * dt
