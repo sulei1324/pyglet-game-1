@@ -18,6 +18,7 @@ class Player(physicalobject.PhysicalObject):
         self.bullet_speed = 700.0
         self.key_handler = key.KeyStateHandler()
         self.event_handlers = [self, self.key_handler]
+        self.reacts_to_bullets = False
 
     def update(self, dt):
         super(Player, self).update(dt)
