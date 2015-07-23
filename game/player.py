@@ -12,7 +12,6 @@ class Player(physicalobject.PhysicalObject):
         super(Player, self).__init__(img=resources.play_image, *args, **kargs)
         self.thrust = 300.0
         self.rotate_speed = 200.0
-        self.key_handler = key.KeyStateHandler()
         self.engine_sprite = pg.sprite.Sprite(img=resources.engine_image, *args, **kargs)
         self.engine_sprite.visible = False
         self.bullet_speed = 700.0

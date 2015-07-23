@@ -11,7 +11,8 @@ score_label = pg.text.Label(text='Score: 0', x=10, y=575, batch=main_batch, font
 level_label = pg.text.Label(text='Game 1', x=400, y=575, anchor_x='center', batch=main_batch)
 player_ship = player.Player(x=400, y=300, batch=main_batch)
 asteroids = load.asteroids(3, player_ship.position, main_batch)
-game_objects = asteroids + [player_ship]
+# game_objects = asteroids + [player_ship]
+game_objects = [player_ship]
 for obj in game_objects:
     for handler in obj.event_handlers:
         game_window.push_handlers(handler)
